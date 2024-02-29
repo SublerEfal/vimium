@@ -58,9 +58,6 @@ class KeyHandlerMode extends Mode {
   }
 
   onKeydown(event) {
-    if(document.body.getAttribute('data-block-vimium-input')) {
-      return this.continueBubbling;
-    }
     const keyChar = KeyboardUtils.getKeyCharString(event);
     const isEscape = KeyboardUtils.isEscape(event);
     if (isEscape && ((this.countPrefix !== 0) || (this.keyState.length !== 1))) {

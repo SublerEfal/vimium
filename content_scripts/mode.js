@@ -312,6 +312,9 @@ class CacheAllKeydownEvents extends SuppressAllKeyboardEvents {
     const defaults = {
       name: "cacheAllKeydownEvents",
       keydown(event) {
+        if(document.body.getAttribute('data-block-vimium-input')) {
+          return this.continueBubbling;
+        }
         return keydownEvents.push(event);
       },
     };
